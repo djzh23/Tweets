@@ -2,8 +2,12 @@ import os
 import sqlite3
 from pathlib import Path
 from datetime import datetime
-from flask import Flask, render_template, request, redirect
+
+import flask
+from flask import Flask, render_template, request, redirect, url_for, session
 from flask_login import login_required, current_user, login_user, logout_user
+from sqlalchemy.sql.functions import user
+
 from models import UserModel, db, login
 
 from pyTwitter import Twitter
@@ -16,16 +20,16 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db.init_app(app)
 login.init_app(app)
-login.login_view = 'login'
 
 DB = 'tweets.db'
 DIR_NAME = parent_path = Path(os.path.abspath(os.path.dirname(__file__)))
 with sqlite3.connect(os.path.join(DIR_NAME, DB)) as conn:
     conn.execute('CREATE TABLE IF NOT EXISTS Tweets (created_at TEXT, keyword TEXT, text TEXT)')
 
-@app.route('/test_home', methods=['GET'])
-def test_home():
-    return render_template('home.html')
+
+@app.before_first_request
+def create_all():
+    db.create_all()
 
 
 @app.route("/")
@@ -56,36 +60,41 @@ def search():
     return render_template("tweets.html", tweets=tweets)
 
 
-@app.before_first_request
-def create_all():
-    db.create_all()
+@app.route('/error')
+def error():
+    return render_template('wrong.html')
 
 
-@app.route('/blogs')
+
+@app.route('/searchafterlogin')
 @login_required
-def blog():
-    return render_template('blog.html')
+def index():
+    return render_template('tweetslog.html')
 
 
 @app.route('/login', methods=['POST', 'GET'])
 def login():
     if current_user.is_authenticated:
-        return redirect('/blogs')
+        print("ICH BIN IN LOGIN")
+        return redirect('/searchafterlogin')
 
     if request.method == 'POST':
         email = request.form['email']
         user = UserModel.query.filter_by(email=email).first()
+        print("ICH BIN IN LOGIN - IF die Methode POST")
         if user is not None and user.check_password(request.form['password']):
             login_user(user)
-            return redirect('/blogs')
-
+            print("DU BIST EINGELOGGT :)")
+            return redirect('/searchafterlogin')
+        else:
+            return redirect('/error')
     return render_template('login.html')
 
 
 @app.route('/register', methods=['POST', 'GET'])
 def register():
     if current_user.is_authenticated:
-        return redirect('/blogs')
+        return redirect('/searchafterlogin')
 
     if request.method == 'POST':
         email = request.form['email']
@@ -106,7 +115,7 @@ def register():
 @app.route('/logout')
 def logout():
     logout_user()
-    return redirect('/blogs')
+    return redirect('/')
 
 
 def get_tweets_from_db(keyword):

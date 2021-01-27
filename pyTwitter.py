@@ -1,5 +1,3 @@
-
-
 import requests
 import configparser
 
@@ -35,18 +33,8 @@ class Twitter:
         if response.status_code != HTTPStatus.OK:
             raise Exception('Error while calling external service')
 
-        response = response.json()
-        # object to json => json.dumps(object)
-        # json to object => json.loads(json)
-        #print(response)
+        self.json = response.json()
+        response = self.json
         return response
 
 
-
-
-#     def test(self, a, b, c, d='d'):
-#         print(a, b, c, d)
-# Twitter().test('a', 'b', 'c')
-# Twitter().test('a', 'b', 'c', 'dddd')
-# Twitter().test(d=1, c=2, b=3, a=4)
-# Twitter().test('a', d='d', b='b', c='c')

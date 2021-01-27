@@ -3,16 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <title>REGISTER</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 </head>
 <body>
-<form action="" method = "POST">
-    <p>email <input type = "email" name = "email" /></p>
-    <p>Username <input type = "text" name = "username" /></p>
-    <p>password <input type = "password" name = "password" /></p>
-    <p> submit <input type = "submit" value = "Submit" /></p>
-</form>
 
-<h3>Already Have an Account?</h3><br>
+<div class="row justify-content-center">
+      <div class="row justify-content-center">
+        <div class="col-md-3">
+            <h5>Sign Up</h5>
+          <div class="card bg-light">
+            <div class="card-body">
+
+              <form action="" method = "POST">
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">
+                    Email Adresse
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    class="form-control"
+                    id=""
+                    aria-describedby="emailHelp"
+                  ></input>
+                </div>
+
+                  <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">
+                    Username
+                  </label>
+                  <input
+                    type="text"
+                    name="username"
+                    class="form-control"
+                    id="exampleInputEmail1"
+                    aria-describedby="emailHelp"
+                  ></input>
+                </div>
+
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">
+                    Password
+                  </label>
+                  <input
+                    type="password"
+                    name="password"
+                    class="form-control"
+                    id="exampleInputPassword1"
+                  ></input>
+                  <div id="passwordHelp" class="form-text">
+                    <a href="#">Password forget</a>
+                  </div>
+                </div>
+            <div class="d-grid gap-2">
+              <button type="submit" class="btn btn-success"value="Submit"/>
+                  Sign In
+                </button>
+            </div>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+<br>
+
+    </div>
+
+
 <h3><a href ="{{url_for('login')}}">Login Here</a></h3>
 </body>
 </html>

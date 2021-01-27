@@ -3,15 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <title>LOGIN</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 </head>
 <body>
-<form action="" method="POST">
-    <p>email <input type="email" name="email"/></p>
-    <p>password <input type="password" name="password"/></p>
-    <p> submit <input type="submit" value="Submit"/></p>
-</form>
+<div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-3">
+            <h5>LOGIN</h5>
+          <div class="card bg-light">
+            <div class="card-body">
 
-<h3>Dont Have an account??</h3>
-<h3><a href="{{url_for('register') }}">Register Here</a></h3>
+              <form method="POST" action="/login" >
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">
+                    Email
+                  </label>
+                  <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp"></input>
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">
+                    Password
+                  </label>
+                  <input type="password" name="password" class="form-control" id="passw"></input>
+                  <div id="passwordHelp" class="form-text">
+                    <a href="#">Password forget</a>
+                  </div>
+                </div>
+            <div class="d-grid gap-2">
+              <button type="submit" name="submit" class="btn btn-success"value="Submit"/>
+                  LOGIN
+                </button>
+            </div>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+<br>
+      <div class="row new-registry justify-content-center">
+          <div class="col-md-3">
+              <div class="card">
+                <div class="card-body">
+                    <p>No account yet? <a href="{{url_for('register') }}">Register .. </a></p>
+                </div>
+              </div>
+          </div>
+      </div>
+    </div>
+
 </body>
 </html>
