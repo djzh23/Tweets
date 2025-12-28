@@ -1,11 +1,15 @@
-# Twitter Search Application
+# Twitter Search Application (Studienprojekt)
 
-A Python-based web application that allows users to search and display tweets using the Twitter API. This project was developed as part of a university assignment to learn Python programming and REST API integration.
+Eine Python-basierte Webanwendung zur Suche und Anzeige von Tweets über die Twitter-API.  
+Das Projekt wurde im Rahmen eines Hochschulprojekts entwickelt, um den Umgang mit Python, Webentwicklung und REST-APIs praktisch zu erlernen.
 
-> **Important Note**: This project was functional for 4 years but is currently limited due to Twitter (now X) API changes. The search endpoint is no longer available in the free tier of the Twitter API. To make this project work with the current Twitter API, you would need to:
-> - Upgrade to a paid Twitter API tier
-> - Update the API endpoints and authentication methods
-> - Modify the code to comply with Twitter's new API v2 specifications
+> **Hinweis zum aktuellen Status**: Dieses Projekt war über mehrere Jahre funktionsfähig.  
+Aufgrund von Änderungen an der Twitter-API ist die Suchfunktion **nicht mehr im kostenlosen API-Zugang verfügbar**.
+>
+> Um das Projekt mit der aktuellen Twitter-API wieder vollständig lauffähig zu machen, wären folgende Anpassungen notwendig:
+> - Upgrade auf einen kostenpflichtigen Twitter/X-API-Tarif
+> - Anpassung der API-Endpunkte und Authentifizierung
+> - Migration auf die aktuellen Twitter API Spezifikationen
 
 ## Technologies Used
 
@@ -17,31 +21,53 @@ A Python-based web application that allows users to search and display tweets us
 - SQLite (Database)
 - HTML/CSS (Frontend)
 
-## Prerequisites
+Das Projekt dient daher heute primär **Lern- und Demonstrationszwecken**.
 
-- Python 3.x installed on your system
-- Twitter Developer Account with API credentials (Paid tier required for search functionality)
-- pip (Python package installer)
+## Ziel des Projekts
 
-
-## Learning Outcomes
-
-This project served as a practical introduction to:
-- Python programming fundamentals
-- Web development with Flask
-- REST API integration
-- Database management with SQLAlchemy
-- User authentication and session management
-- Frontend development with HTML/CSS
-- Error handling and debugging
-- Version control with Git
-- Understanding API versioning and deprecation
+- Praktische Anwendung von Python im Web-Kontext
+- Integration einer externen REST-API
+- Umsetzung einer vollständigen Webanwendung inkl. Authentifizierung und Datenpersistenz
 
 
-For educational purposes, you can still use this project to learn about:
-- Web application development
-- User authentication
-- Database management
-- API integration concepts
-- Error handling
-- Frontend development
+## Technischer Überblick
+
+- **Programmiersprache:** Python 3
+- **Framework:** Flask
+- **Authentifizierung:** Flask-Login
+- **Datenbank:** SQLite
+- **ORM:** Flask-SQLAlchemy
+- **API:** Twitter API v2 (Suchfunktion erfordert kostenpflichtigen Zugang)
+- **Frontend:** HTML / CSS
+
+
+## Zentrale Funktionen
+
+- Benutzerauthentifizierung (Login / Session-Management)
+- Suche nach Tweets über die Twitter-API
+- Anzeige der Suchergebnisse im Webinterface
+- Persistenz von Nutzerdaten
+- Fehlerbehandlung und einfache Validierungen
+
+## Lerninhalte & Kompetenzen
+
+Dieses Projekt diente als Einführung und praktische Übung in:
+
+- Python-Grundlagen und Projektstruktur
+- Webentwicklung mit Flask
+- REST-API-Integration
+- Datenbankanbindung mit SQLAlchemy
+- Benutzer- und Session-Management
+- HTML/CSS-basierte Frontend-Umsetzung
+- Fehlerbehandlung und Debugging
+- Arbeiten mit Git
+- Umgang mit API-Versionierung und Deprecation
+
+## Projektstatus
+
+- **Status:** Abgeschlossenes Studien-/Lernprojekt  
+
+## Autor
+
+Studienprojekt im Rahmen des Informatikstudiums  
+Softwareentwickler – Backend / Webentwicklung
